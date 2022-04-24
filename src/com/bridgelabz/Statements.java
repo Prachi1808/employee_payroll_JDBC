@@ -33,7 +33,7 @@ public class Statements
 	            ResultSet resultSet = statement.executeQuery(RETRIEVE_QUERY);
 
 	            while (resultSet.next()) {
-	            	EmployeePayrollJDBCMain employeePayroll = new EmployeePayrollJDBCMain (resultSet.getInt(1), resultSet.getString(2), resultSet.getDouble(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6), resultSet.getString(7), resultSet.getString(8), resultSet.getDouble(9), resultSet.getDouble(10), resultSet.getDouble(11), resultSet.getDouble(12), resultSet.getDouble(13));
+	            	EmployeePayrollJDBCMain employeePayroll = new EmployeePayrollJDBCMain ();
 	                payrollArrayList.add(employeePayroll);
 	                System.out.println(employeePayroll);
 	            }
@@ -49,7 +49,8 @@ public class Statements
 	        statement = connection.createStatement();
 	        statement.execute(UPDATE_QUERY);
 	        for (EmployeePayrollJDBCMain employeePayroll : payrollArrayList) {
-	            if (employeePayroll.getName().equals("Prachi")) {
+	            if (employeePayroll.getName().equals("Prachi"))
+	            {
 	                employeePayroll.setSalary(5000000);
 	                return true;
 	            }
@@ -67,7 +68,7 @@ public class Statements
 	        preparedStatement.setString(2, "Prachi");
 	        preparedStatement.execute();
 
-	        for (EmployeePayroll employeePayroll : payrollArrayList) {
+	        for (EmployeePayrollJDBCMain employeePayroll : payrollArrayList) {
 	            if (employeePayroll.getName().equals("Prachi")) {
 	                employeePayroll.setSalary(50000);
 	                return true;
@@ -85,7 +86,7 @@ public class Statements
 	        ResultSet resultSet = statement.executeQuery(query);
 
 	        while (resultSet.next()) {
-	            EmployeePayroll employeePayroll = new EmployeePayroll(resultSet.getInt(1), resultSet.getString(2), resultSet.getDouble(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6), resultSet.getString(7), resultSet.getString(8), resultSet.getDouble(9), resultSet.getDouble(10), resultSet.getDouble(11), resultSet.getDouble(12), resultSet.getDouble(13));
+	        	EmployeePayrollJDBCMain employeePayroll = new EmployeePayrollJDBCMain (resultSet.getInt(1), resultSet.getString(2), resultSet.getDouble(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6), resultSet.getString(7), resultSet.getString(8), resultSet.getDouble(9), resultSet.getDouble(10), resultSet.getDouble(11), resultSet.getDouble(12), resultSet.getDouble(13));
 	            payrollArrayList.add(employeePayroll);
 	            System.out.println(employeePayroll);
 	            return true;
